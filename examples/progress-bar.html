@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>progress-bar</title>
+</head>
+<body>
+	<div id="app">
+		<progress-bar :progress="progress"></progress-bar>
+	</div>
+	<script type="text/javascript" src="https://cdn.bootcss.com/vue/2.3.4/vue.js"></script>
+	<script type="text/javascript" src="../dist/care.js"></script>
+	<script type="text/javascript">
+	// Vue.component('')
+	var app = new Vue({
+		el: '#app',
+		data: {
+			progress: 59.32
+		}
+	})
+	</script>
+</body>
+</html>
