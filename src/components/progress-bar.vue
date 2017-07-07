@@ -43,17 +43,17 @@
 	    left 0
 	    box-sizing border-box
 	  }
-  .progress-bar>.similar-num{
-    width 90px
-    height 90px
-    line-height 90px
-    color #fff
-    font-size 14px
-    text-align center
-    border-radius 50%
-    overflow hidden
-    top 10px
-    left 10px
-    z-index 2
-  }
+	.progress-bar>.similar-num{
+		width 90px
+		height 90px
+		line-height 90px
+		color #fff
+		font-size 14px
+		text-align center
+		border-radius 50%
+		overflow hidden
+		top 10px
+		left 10px
+		z-index 2
+	}
 </style>
