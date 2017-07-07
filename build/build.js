@@ -1,16 +1,17 @@
 var path = require('path')
-var ora = require('ora')
+// var ora = require('ora')
 var stylus = require('stylus')
 var webpack = require('webpack')
 
 var webpackConfig = {
 	entry: {
-    app: path.resolve(__dirname, '../index.js')
+    app: path.resolve(__dirname, '../src/index.js')
   },
   output: {
     path: path.resolve(__dirname, '../dist'),
     publicPath: path.resolve(__dirname, '../dist'),
-    filename: 'care.js'
+    filename: 'care.js',
+    libraryTarget: "umd"
   },
   resolve: {
     modules: [
@@ -23,13 +24,6 @@ var webpackConfig = {
     alias: {
       'vue$': 'vue/dist/vue.esm.js',
       'src': path.resolve(__dirname, '../src'),
-      'assets': path.resolve(__dirname, '../src/assets'),
-      'components': path.resolve(__dirname, '../src/components'),
-      'locales': path.resolve(__dirname, '../src/locales'),
-      'model': path.resolve(__dirname, '../src/model'),
-      'shared': path.resolve(__dirname, '../src/shared'),
-      'store': path.resolve(__dirname, '../src/store'),
-      'resources': path.resolve(__dirname, '../src/resources'),
     }
   },
   module: {
@@ -100,11 +94,11 @@ var webpackConfig = {
   }
 }
 
-var spinner = ora('building for production...')
-spinner.start()
+// var spinner = ora('building for production...')
+// spinner.start()
 
 webpack(webpackConfig, function (err, stats) {
-  spinner.stop()
+  // spinner.stop()
   if (err) throw err
   process.stdout.write(stats.toString({
     colors: true,
