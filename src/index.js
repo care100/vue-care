@@ -1,6 +1,5 @@
-// import Vue from 'vue';
+import Vue from 'vue';
 import progressBar from './components/progress-bar';
-console.log(999)
 const components = [progressBar];
 
 const install = function(Vue, opts = {}) {
@@ -12,13 +11,7 @@ const install = function(Vue, opts = {}) {
 	    Vue.component(component.name, component);
 	});
 };
-
-var progressBar = {
+export default {
 	version: 0.0.1,
 	install
 }
-
-Vue.use(progressBar)
-Vue.component('progress-bar', progressBar);
-
-export default progressBar
