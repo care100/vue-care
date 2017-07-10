@@ -2,7 +2,7 @@
 Some vue components i used.
 
 ## Usage
-##### 1、npm install and node package
+#### 1、npm install and node package
 
 $ npm install vue-care --save
 
@@ -12,5 +12,5 @@ import vueCare from 'vue-care'
 Vue.use(vueCare)  
 </code></pre>
 
-##### 2、browser 'script' element
+#### 2、browser 'script' element
 Look at examples
