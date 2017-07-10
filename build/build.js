@@ -13,6 +13,7 @@ var webpackConfig = {
     filename: 'care.js',
     library: 'care',
     libraryTarget: "umd",
+    // libraryTarget: "var",
     umdNamedDefine: true
   },
   externals: {
@@ -101,7 +102,16 @@ var webpackConfig = {
       //   }
       // }
     ]
-  }
+  },
+  plugins: [
+    new webpack.optimize.UglifyJsPlugin({
+      compress: {
+        warnings: false,
+        drop_console: false,
+      }
+    })
+  ],
+  watch: true
 }
 
 // var spinner = ora('building for production...')
