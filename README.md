@@ -11,3 +11,4 @@ import vueCare from 'vue-care'
 Vue.use(vueCare)  
 </code></pre>
 
+
