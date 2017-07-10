@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <html>
 <head>
+	<meta charset="utf-8">
 	<title>progress-bar</title>
 </head>
 <style type="text/css">
@@ -12,16 +13,17 @@
 </style>
 <body>
 	<div id="app">
-		<progress-bar :progress="progress"></progress-bar>
+		<progress-bar :progress="progress" :width="width" :stroke-width="strokeWidth"></progress-bar>
 	</div>
 	<script type="text/javascript" src="https://cdn.bootcss.com/vue/2.3.4/vue.js"></script>
 	<script type="text/javascript" src="../dist/care.js"></script>
 	<script type="text/javascript">
-	// Vue.use('care')
 	var app = new Vue({
 		el: '#app',
 		data: {
-			progress: 59.32
+			progress: 59.32,
+			strokeWidth: 10,
+			width: 200
 		}
 	})
 	</script>
