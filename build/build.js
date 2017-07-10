@@ -11,7 +11,18 @@ var webpackConfig = {
     path: path.resolve(__dirname, '../dist'),
     publicPath: path.resolve(__dirname, '../dist'),
     filename: 'care.js',
-    libraryTarget: "umd"
+    library: 'care',
+    libraryTarget: "umd",
+    // libraryTarget: "var",
+    umdNamedDefine: true
+  },
+  externals: {
+    vue: {
+      root: 'Vue',
+      commonjs: 'vue',
+      commonjs2: 'vue',
+      amd: 'vue'
+    }
   },
   resolve: {
     modules: [
@@ -91,7 +102,16 @@ var webpackConfig = {
       //   }
       // }
     ]
-  }
+  },
+  plugins: [
+    new webpack.optimize.UglifyJsPlugin({
+      compress: {
+        warnings: false,
+        drop_console: false,
+      }
+    })
+  ],
+  watch: true
 }
 
 // var spinner = ora('building for production...')
