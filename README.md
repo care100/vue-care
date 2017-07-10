@@ -10,4 +10,3 @@ npm install vue-care --save
   import vueCare from 'vue-care'
   
   Vue.use(vueCare)
-

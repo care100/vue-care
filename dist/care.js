@@ -200,7 +200,7 @@ exports = module.exports = __webpack_require__(4)(undefined);
 
 
 // module
-exports.push([module.i, "\n.progress-bar {\n  display: inline-block;\n  width: 110px;\n  height: 110px;\n  position: relative;\n  border-radius: 50%;\n  overflow: hidden;\n}\n.progress-bar>div {\n  position: absolute;\n  width: 100%;\n  height: 100%;\n  top: 0;\n  left: 0;\n  -webkit-box-sizing: border-box;\n          box-sizing: border-box;\n}\n.progress-bar>.similar-num {\n  width: 90px;\n  height: 90px;\n  line-height: 90px;\n  color: #fff;\n  font-size: 14px;\n  text-align: center;\n  border-radius: 50%;\n  overflow: hidden;\n  top: 10px;\n  left: 10px;\n  z-index: 2;\n}\n", ""]);
+exports.push([module.i, "\n.progress-bar {\n  display: inline-block;\n  position: relative;\n  border-radius: 50%;\n  overflow: hidden;\n}\n.progress-bar >div {\n  position: absolute;\n  width: 100%;\n  height: 100%;\n  top: 0;\n  left: 0;\n  -webkit-box-sizing: border-box;\n          box-sizing: border-box;\n}\n.progress-bar >.similar-in-circle {\n  border-radius: 50%;\n  overflow: hidden;\n  z-index: 2;\n}\n.progress-bar >.similar-num {\n  color: #fff;\n  font-size: 14px;\n  text-align: center;\n  z-index: 3;\n}\n", ""]);
 
 // exports
 
@@ -662,6 +662,22 @@ exports.default = {
 			validator: function validator(value) {
 				return value <= 100 && value >= 0;
 			}
+		},
+		width: {
+			type: Number,
+			default: 120,
+			required: false,
+			validator: function validator(value) {
+				return value > 0;
+			}
+		},
+		strokeWidth: {
+			type: Number,
+			default: 8,
+			required: false,
+			validator: function validator(value) {
+				return value > 0;
+			}
 		}
 	}
 };
@@ -673,28 +689,41 @@ exports.default = {
 "use strict";
 var render = function () {var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;
   return _c('div', {
-    staticClass: "progress-bar"
+    staticClass: "progress-bar",
+    style: ({
+      width: _vm.width + 'px',
+      height: _vm.width + 'px'
+    })
   }, [_c('div', {
     style: ({
-      borderLeft: '55px solid #2b2b2b',
+      borderLeft: _vm.width / 2 + 'px solid #2b2b2b',
       background: 'transparent',
       zIndex: _vm.progress > 50 ? 0 : 1
     })
   }), _vm._v(" "), _c('div', {
     style: ({
-      borderRight: '55px solid ' + (_vm.progress > 50 ? 'rgb(' + (130 + parseInt(_vm.progress)) + ',85,91)' : '#2b2b2b'),
+      borderRight: _vm.width / 2 + 'px solid ' + (_vm.progress > 50 ? 'rgb(' + (130 + parseInt(_vm.progress)) + ',85,91)' : '#2b2b2b'),
       background: 'transparent'
     })
   }), _vm._v(" "), _c('div', {
     style: ({
-      borderLeft: '55px solid ' + ('rgb(' + (130 + parseInt(_vm.progress)) + ',85,91)'),
+      borderLeft: _vm.width / 2 + 'px solid ' + ('rgb(' + (130 + parseInt(_vm.progress)) + ',85,91)'),
       background: 'transparent',
       transform: 'rotate(' + _vm.progress * 3.6 + 'deg)'
     })
   }), _vm._v(" "), _c('div', {
+    staticClass: "similar-in-circle",
+    style: ({
+      width: _vm.width / 2 > _vm.strokeWidth ? _vm.width - 2 * _vm.strokeWidth + 'px' : 0,
+      height: _vm.width / 2 > _vm.strokeWidth ? _vm.width - 2 * _vm.strokeWidth + 'px' : 0,
+      top: _vm.strokeWidth + 'px',
+      left: _vm.strokeWidth + 'px',
+      background: '#404040'
+    })
+  }, [_vm._v(_vm._s(_vm.progress) + "%")]), _vm._v(" "), _c('div', {
     staticClass: "similar-num",
     style: ({
-      background: '#404040'
+      lineHeight: _vm.width + 'px'
     })
   }, [_vm._v(_vm._s(_vm.progress) + "%")])])
 }
