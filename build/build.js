@@ -11,7 +11,17 @@ var webpackConfig = {
     path: path.resolve(__dirname, '../dist'),
     publicPath: path.resolve(__dirname, '../dist'),
     filename: 'care.js',
-    libraryTarget: "umd"
+    library: 'care',
+    libraryTarget: "umd",
+    umdNamedDefine: true
+  },
+  externals: {
+    vue: {
+      root: 'Vue',
+      commonjs: 'vue',
+      commonjs2: 'vue',
+      amd: 'vue'
+    }
   },
   resolve: {
     modules: [
