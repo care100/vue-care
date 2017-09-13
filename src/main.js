@@ -1,5 +1,6 @@
 import Vue from 'vue'
 import 'es6-promise/auto'
+import 'babel-polyfill'
 import care from './index'
 
 Vue.use(care)
